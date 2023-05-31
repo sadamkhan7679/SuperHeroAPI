@@ -1,0 +1,15 @@
+﻿
+## IDE 
+.idea
+.vs
+.vscode
+
+
+## Build tool
+node_modules
+bower_components
+jspm_packages
+dist
+build
+out
+target
