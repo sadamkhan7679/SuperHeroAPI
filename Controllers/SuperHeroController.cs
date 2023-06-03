@@ -25,9 +25,9 @@ namespace SuperHeroAPI.Controllers
 
         [HttpGet]
        
-       public async Task <ActionResult<List<SuperHero>>> GetSuperHeroes()
+       public async Task<ActionResult<List<SuperHero>>> GetSuperHeroes()
        {
-           var superHeroes = _superHeroService.getSuperHeroes();
+           var superHeroes = await _superHeroService.GetSuperHeroes();
            
            return Ok(superHeroes);
        }
@@ -37,7 +37,7 @@ namespace SuperHeroAPI.Controllers
        [Route("{id:int}")]
        public async Task <ActionResult<SuperHero>> GetSuperHero(int id)
        {
-           var hero = _superHeroService.getSuperHero(id);
+           var hero =await  _superHeroService.GetSuperHero(id);
            
            if (hero == null)
            {
@@ -49,7 +49,7 @@ namespace SuperHeroAPI.Controllers
        [HttpPost]
        public async Task <ActionResult<List<SuperHero>>> CreateSuperHero(SuperHero hero)
        {
-        var heroes = _superHeroService.createSuperHero(hero);
+        var heroes =await  _superHeroService.CreateSuperHero(hero);
 
         return Ok(heroes);
        }
@@ -57,7 +57,7 @@ namespace SuperHeroAPI.Controllers
        [HttpPut]
        public async Task <ActionResult<List<SuperHero>>> UpdateSuperHero(SuperHero hero)
        {
-              var updatedHero = _superHeroService.updateSuperHero(hero);
+              var updatedHero =await  _superHeroService.UpdateSuperHero(hero);
               
                 if (updatedHero == null)
                 {
@@ -71,7 +71,7 @@ namespace SuperHeroAPI.Controllers
          [Route("{id:int}")]
        public async Task <ActionResult<List<SuperHero>>> RemoveSuperHero(int  id)
        {
-                var result = _superHeroService.removeSuperHero(id);
+                var result =await  _superHeroService.RemoveSuperHero(id);
                 
                 if (result == null)
                 {
